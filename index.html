@@ -1,1 +1,806 @@
-微信分享功能测试
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<meta name="renderer" content="webkit">
+		<!--<meta name="renderer" content="webkit|ie-comp|ie-stand">-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		
+		<!--<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.css"/>-->
+		<script type="text/javascript" src="easyui/jquery.min.js"></script>
+		<!--<script src="bootstrap-3.3.7-dist/js/bootstrap.js" type="text/javascript" charset="utf-8"></script>-->
+		
+		<!--<script type="text/javascript" src="js/jquery-1.4.2.js">
+		</script>-->
+		
+		<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="easyui/locale/easyui-lang-zh_CN.js"></script>
+		<link rel="stylesheet" type="text/css" href="easyui/themes/default/easyui.css" />
+		<link rel="stylesheet" type="text/css" href="easyui/themes/icon.css" />
+
+		<script src="js/snap.svg-min.js"></script>
+		<script src="js/canvg.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/canvg.min.js" type="text/javascript" charset="utf-8"></script>
+		
+		<!--引入的js插件要放在前面否则会出现snap未定义-->
+		<style type="text/css">
+			* {
+				margin: 0px;
+				/*border: 0px;*/
+			}
+			
+			.textbox {
+				height: 25px;
+			}
+			
+			p {
+				height: 50px;
+				line-height: 50px;
+			}
+		</style>
+	</head>
+
+	<body style="margin: 0px;border: 0px;padding: 0px;">
+		
+		<div id="colorwindow" style="display: none;position: absolute;z-index: 9000;left: 0px;top: 0px;">
+			<div id="color" style="width: 180px;height: 138px;">
+				<div id="" style="width: 180px;height: 18px;">
+					<div id="colorshow" style="width: 40px;height: 18px;float: left;background-color: #00EE00;">
+					</div>
+					<input type="text" id="colorvalue" value="" style="width: 105px;height: 12px; float: left;" />
+					<a id="guanbi" href="###" class="easyui-linkbutton" data-options="iconCls : 'icon-cancel'" style="width: 25px;height: 18px;float: right;"></a>
+				</div>
+
+				<table id="colortable" border="" cellspacing="" cellpadding="" style="border-collapse: collapse;width: 180px;height: 120px;">
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+		<div id="zuhelinediv" style="display: none;" align="center">
+			线数<input id="linecount" class="easyui-numberspinner" data-options="min:1,max:10,value:4,increment:1" style="width: 66px;height: 25px;" /> 线长
+			<input id="linelong" class="easyui-numberspinner" data-options="min:10,max:120,value:50,increment:1" style="width: 56px;height: 28px;" /> 线间距
+			<input id="jianjuline" class="easyui-numberspinner" data-options="min:2,max:10,value:3,increment:1" style="width: 46px;height: 25px;" />
+			<a href="###" class="easyui-linkbutton" id="quedingzuheline">确定</a>
+		</div>
+
+		<div id="zuhediandiv" style="display: none;" align="center">
+			控制点数<input id="kongzhidiancount" class="easyui-numberspinner" data-options="min:1,max:10,value:2,increment:1" style="width: 40px;height: 25px;" /> 受控点数
+			<input id="shoukongdiancount" class="easyui-numberspinner" data-options="min:1,max:10,value:1,increment:1" style="width: 40px;height: 25px;" /> 点间距
+			<input id="jianjudian" class="easyui-numberspinner" data-options="min:2,max:10,value:3,increment:1" style="width: 40px;height: 25px;" />
+			<a href="###" class="easyui-linkbutton" id="quedingzuhedian">确定</a>
+		</div>
+
+		<div id="fuhaozudiv" style="display: none;" align="center">
+			符号中间无字符
+			<input id="fuhaoshu" value="abcd" type="text" style="width: 80px;height: 15px;" /> 字符间距
+			<input id="zifujianju" class="easyui-numberspinner" data-options="min:2,max:10,value:2,increment:1" style="width: 40px;height: 25px;" />
+			<a href="###" class="easyui-linkbutton" id="quedingfuhaozu">确定</a>
+		</div>
+
+		<div id="dialog1" style="display: none;" align="center">
+			<input type="text" id="wenzi" value="" style="border: 1px solid black;margin-top: 5px;" />
+			<!--<select type="text" id="wenzi" value="" style="border: 1px solid black;margin-top: 5px;" />
+				会导致console.log(document.getElementById('registerandgo'));为null
+			-->
+		</div>
+
+		<div id="registerandgo" style="display: none;" align="center">
+			<p>
+				<span style="font-size: medium;">用户名:</span><input class="easyui-validatebox" data-options="required:true" type="text" id="username" class="textbox">
+			</p>
+			<p>
+				<span style="font-size: medium;">密码:</span><input class="easyui-validatebox" data-options="required:true" type="password" id="password" class="textbox">
+			</p>
+		</div>
+
+		<!--<script type="text/javascript">
+			console.log(document.getElementById('registerandgo'));  //js发生错误往往是前面书写不规范导致的
+		</script>-->
+
+		<div id="btn" style="display: none;text-align: center;padding: 0 5px;display: none;">
+			<a id="zhu" href="#" class="easyui-linkbutton">注册</a>
+		</div>
+		<div id="btn1" style="display: none;text-align: center;padding: 0 5px;display: none;">
+			<a id="deng" href="#" class="easyui-linkbutton">登录</a>
+		</div>
+
+		<div id="gongju" align="center">
+			<button id="pingline" style="margin: 2px;">平行线</button>
+			<button id="shuline" style="margin: 2px;">竖直线</button>
+			<button id="control" style="margin: 2px;">控制点</button>
+			<button id="shoucontrol" style="margin: 2px;">受控点</button>
+			<button id="fuhao" style="margin: 2px;">符号</button>
+		</div>
+		
+		<div id="wiretools">
+			<img id="wire" src="svgtoolsicon/wire.jpg" style="float: left;width: 36px;height: 36px;" />
+			<img id="continuexieline" src="draggabletools/1.jpg" style="float: left;width: 36px;height: 36px;" />
+			<img id="quxian" src="draggabletools/2.jpg" style="float: left;width: 36px;height: 36px;" />
+			<img id="text" src="draggabletools/5.jpg" style="float: left;width: 36px;height: 36px;" />
+			<img id="pencil" src="draggabletools/6.jpg" style="float: left;width: 36px;height: 36px;" />
+			<img id="rect" src="draggabletools/7.jpg" style="float: left;width: 36px;height: 36px;" />
+			<img id="polygon" src="draggabletools/8.jpg" style="float: left;width: 36px;height: 36px;" />
+			<img id="ellipse" src="draggabletools/9.jpg" style="float: left;width: 36px;height: 36px;" />
+		</div>
+
+		<div id="gridd" style="display: none;">
+			<table id="quanxiandatagrid">
+			</table>
+		</div>
+
+		<div id="groupOperator" style="display: none;" align="center">
+			<div style="padding-top: 10px;">
+				作品名:<input type="text" value="" id="zuopinname" style="width: 100px;" /> 已添加成员:
+				<select id="groupmenber"></select>
+				<a href="###" class="easyui-linkbutton" iconCls="icon-remove" id="menbershanchu">删除</a>
+			</div>
+			<div style="padding-top: 20px;">
+				待处理成员:
+				<select id="allmenber"></select>
+				权限:<input type="checkbox" name="menberquanxian" id="menberquanxian" value="" /> 是否可以编辑
+				<a href="###" class="easyui-linkbutton" iconCls="icon-add" id="menberadd">添加</a>
+			</div>
+			<div style="padding-top: 50px;">
+				<a href="###" class="easyui-linkbutton" id="groupQueDing" style="width: 100px;display: none;">确定创建</a>
+				<a href="###" class="easyui-linkbutton" id="groupmodify1" style="width: 100px;display: none;">确定修改</a>
+			</div>
+		</div>
+
+		<div id="tbgroup" style="display: none;">
+			<a href="###" class="easyui-linkbutton" iconCls="icon-add" id="addgroup">添加</a>
+			<a href="###" class="easyui-linkbutton" iconCls="icon-edit" id="modifygroup">修改</a>
+			<a href="###" class="easyui-linkbutton" iconCls="icon-remove" id="removegroup">删除</a>
+		</div>
+		<div id="gridd1" style="display: none;">
+			<table id="groupgrid">
+			</table>
+		</div>
+
+		<div id="body" class="easyui-layout" style="width: auto;">
+			<div data-options="region:'north',title:'svg量子电路设计平台',split:'true'" style="height: 120px;">
+
+				<div id="user" style="float: right;border: 1px dashed blue;width: 280px;height: 75px;display: none;">
+					<select id="svgcombo" style="width: 180px;"></select>
+					<button id="zhuce" name="zhuce" style="position: absolute;right: 55px;top: 28px;">注册</button>
+					<button id="denglu" name="denglu" style="position: absolute;right: 7px;top: 28px;">登录</button>
+					<span id="yonghuming" style="display: none;position: absolute;right: 55px;top: 28px;text-align: center;color: red;width: 50px;"></span>
+					<button id="tuichu" style="display: none;position: absolute;right: 7px;top: 28px;">注销</button>
+					<select id="zuzuopin" style="width: 180px;"></select>
+					<button id="tianjiagroup">分组管理</button>
+					<select id="all" style="width: 180px;"></select>
+					<button id="quanxianguanli">权限管理</button>
+				</div>
+
+				<div id="box" style="display: none;" align="center">
+					<span style="font-size: medium;color: red;">
+						圈定图像的范围
+					</span>
+				</div>
+
+				<!--<div align="center" style="float: left;">-->
+				<div style="margin-top: 10px;">
+					<button id="shangyibu"></button>
+					<button id="xiayibu"></button>
+					<button id="huanyuan"></button>
+				</div>
+
+				<div id="" style="margin-top: 10px;">
+					<button style="display: none;" id="save">保存到数据库</button>
+					<button style="display: none;" id="savelocal">保存到本地</button>
+					<button id="shanchu">删除</button>
+					<button id="qingkong">清空</button>
+				</div>
+				<!--</div>-->
+
+			</div>
+			<!--<div data-options="region:'south',title:'south',split:'true'" style="height: 100px;">
+
+				<div style="width: 100px;height: 100px;">
+					<canvas id="svgcanvas" width="100px" height="100px"></canvas>
+				</div>
+			</div>-->
+
+			<div id="west1" data-options="region:'west',title:'量子门线路',split:'true'" style="width: 220px">
+				<div id="create-shape">
+					<div style="width: 220px;">
+						<p>量子门</p>
+						<!--<div id="pingline" style="width: 100px;height: 100px;float: left;border: 1px solid black;">平行线</div>
+					<div id="shuline" style="width: 100px;height: 100px;float: left;border: 1px solid black;">竖直线</div>
+					<div id="control" style="width: 100px;height: 100px;float: left;border: 1px solid black;">控制点</div>
+					<div id="shoucontrol" style="width: 100px;height: 100px;float: left;border: 1px solid black;">受控点</div>
+					<div id="fuhao" style="width: 100px;height: 100px;float: left;border: 1px solid black;">符号</div>-->
+						<div id="hadamard" style="width: 100px;height: 100px;float: left;border: 1px dashed blue;">
+							<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+								<line x1="10" y1="50" x2="30" y2="50" style="stroke:black;stroke-width:1" />
+								<line x1="70" y1="50" x2="90" y2="50" style="stroke:black;stroke-width:1" />
+								<text x="50" y="60" font-family="Verdana" font-size="20pt" fill="black" text-anchor="middle">H</text>
+								<rect x="30" y="30" width="40" height="40" style="fill:none;stroke:black;stroke-width:1;" />
+								<circle tishi="yes" cx="10" cy="50" r="3" stroke="black" stroke-width="1" fill="black" />
+								<circle tishi="yes" cx="90" cy="50" r="3" stroke="black" stroke-width="1" fill="black" />
+							</svg>
+						</div>
+						<div id="paulix" style="width: 100px;height: 100px;float: left;border: 1px dashed blue;">
+							<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+								<line x1="10" y1="50" x2="30" y2="50" style="stroke:black;stroke-width:1" />
+								<line x1="70" y1="50" x2="90" y2="50" style="stroke:black;stroke-width:1" />
+								<text x="50" y="60" font-family="Verdana" font-size="20pt" fill="black" text-anchor="middle">X</text>
+								<rect x="30" y="30" width="40" height="40" style="fill:none;stroke:black;stroke-width:1;" />
+								<circle tishi="yes" cx="10" cy="50" r="3" stroke="black" stroke-width="1" fill="black" />
+								<circle tishi="yes" cx="90" cy="50" r="3" stroke="black" stroke-width="1" fill="black" />
+							</svg>
+						</div>
+						<div id="pauliy" style="width: 100px;height: 100px;float: left;border: 1px dashed blue;">
+							<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+								<line x1="10" y1="50" x2="30" y2="50" style="stroke:black;stroke-width:1" />
+								<line x1="70" y1="50" x2="90" y2="50" style="stroke:black;stroke-width:1" />
+								<text x="50" y="60" font-family="Verdana" font-size="20pt" fill="black" text-anchor="middle">Y</text>
+								<rect x="30" y="30" width="40" height="40" style="fill:none;stroke:black;stroke-width:1;" />
+								<circle tishi="yes" cx="10" cy="50" r="3" stroke="black" stroke-width="1" fill="black" />
+								<circle tishi="yes" cx="90" cy="50" r="3" stroke="black" stroke-width="1" fill="black" />
+							</svg>
+						</div>
+						<div id="pauliz" style="width: 100px;height: 100px;float: left;border: 1px dashed blue;">
+							<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+								<line x1="10" y1="50" x2="30" y2="50" style="stroke:black;stroke-width:1" />
+								<line x1="70" y1="50" x2="90" y2="50" style="stroke:black;stroke-width:1" />
+								<text x="50" y="60" font-family="Verdana" font-size="20pt" fill="black" text-anchor="middle">Z</text>
+								<rect x="30" y="30" width="40" height="40" style="fill:none;stroke:black;stroke-width:1;" />
+								<circle tishi="yes" cx="10" cy="50" r="3" stroke="black" stroke-width="1" fill="black" />
+								<circle tishi="yes" cx="90" cy="50" r="3" stroke="black" stroke-width="1" fill="black" />
+							</svg>
+						</div>
+						<div id="XiangWeiMen" style="width: 100px;height: 100px;float: left;border: 1px dashed blue;">
+							<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+								<line x1="10" y1="50" x2="30" y2="50" style="stroke:black;stroke-width:1" />
+								<line x1="70" y1="50" x2="90" y2="50" style="stroke:black;stroke-width:1" />
+								<text x="50" y="60" font-family="Verdana" font-size="20pt" fill="black" text-anchor="middle">S</text>
+								<rect x="30" y="30" width="40" height="40" style="fill:none;stroke:black;stroke-width:1;" />
+								<circle tishi="yes" cx="10" cy="50" r="3" stroke="black" stroke-width="1" fill="black" />
+								<circle tishi="yes" cx="90" cy="50" r="3" stroke="black" stroke-width="1" fill="black" />
+							</svg>
+						</div>
+						<div id="TMen" style="width: 100px;height: 100px;float: left;border: 1px dashed blue;">
+							<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+								<line x1="10" y1="50" x2="30" y2="50" style="stroke:black;stroke-width:1" />
+								<line x1="70" y1="50" x2="90" y2="50" style="stroke:black;stroke-width:1" />
+								<text x="50" y="60" font-family="Verdana" font-size="20pt" fill="black" text-anchor="middle">T</text>
+								<rect x="30" y="30" width="40" height="40" style="fill:none;stroke:black;stroke-width:1;" />
+								<circle tishi="yes" cx="10" cy="50" r="3" stroke="black" stroke-width="1" fill="black" />
+								<circle tishi="yes" cx="90" cy="50" r="3" stroke="black" stroke-width="1" fill="black" />
+							</svg>
+						</div>
+						<div id="shoukongfeimen" style="width: 100px;height: 100px;float: left;border: 1px dashed blue;">
+							<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+								<circle cx="50" cy="30" r="3" stroke="black" stroke-width="1" fill="black" />
+								<circle cx="50" cy="70" r="5" stroke="black" stroke-width="1" fill="none" />
+								<line x1="30" y1="30" x2="70" y2="30" style="stroke:black;stroke-width:1" />
+								<line x1="30" y1="70" x2="70" y2="70" style="stroke:black;stroke-width:1" />
+								<line x1="50" y1="30" x2="50" y2="76" style="stroke:black;stroke-width:1" />
+								<circle tishi="yes" cx="30" cy="30" r="3" stroke="black" stroke-width="1" fill="black" />
+								<circle tishi="yes" cx="70" cy="30" r="3" stroke="black" stroke-width="1" fill="black" />
+								<circle tishi="yes" cx="30" cy="70" r="3" stroke="black" stroke-width="1" fill="black" />
+								<circle tishi="yes" cx="70" cy="70" r="3" stroke="black" stroke-width="1" fill="black" />
+							</svg>
+						</div>
+						<div id="jiaohuanmen" style="width: 100px;height: 100px;float: left;border: 1px dashed blue;">
+							<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+								<!--<path d="M 45 25 L 55 35" style="fill:none;stroke:black;stroke-width:1" />
+								<path d="M 45 65 L 55 75" style="fill:none;stroke:black;stroke-width:1" />
+								<path d="M 45 35 L 55 25" style="fill:none;stroke:black;stroke-width:1" />
+								<path d="M 45 75 L 55 65" style="fill:none;stroke:black;stroke-width:1" />-->
+								<line x1="45" y1="25" x2="55" y2="35" style="stroke:black;stroke-width:1" />
+								<line x1="45" y1="65" x2="55" y2="75" style="stroke:black;stroke-width:1" />
+								<line x1="45" y1="35" x2="55" y2="25" style="stroke:black;stroke-width:1" />
+								<line x1="45" y1="75" x2="55" y2="65" style="stroke:black;stroke-width:1" />
+
+								<line x1="30" y1="30" x2="70" y2="30" style="stroke:black;stroke-width:1" />
+								<line x1="30" y1="70" x2="70" y2="70" style="stroke:black;stroke-width:1" />
+								<line x1="50" y1="30" x2="50" y2="70" style="stroke:black;stroke-width:1" />
+								<circle tishi="yes" cx="30" cy="30" r="3" stroke="black" stroke-width="1" fill="black" />
+								<circle tishi="yes" cx="70" cy="30" r="3" stroke="black" stroke-width="1" fill="black" />
+								<circle tishi="yes" cx="30" cy="70" r="3" stroke="black" stroke-width="1" fill="black" />
+								<circle tishi="yes" cx="70" cy="70" r="3" stroke="black" stroke-width="1" fill="black" />
+							</svg>
+						</div>
+						<div id="shoukongZmen" style="width: 100px;height: 100px;float: left;border: 1px dashed blue;">
+							<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+								<circle cx="50" cy="30" r="3" stroke="black" stroke-width="1" fill="black" />
+								<line x1="30" y1="30" x2="70" y2="30" style="stroke:black;stroke-width:1" />
+								<line x1="30" y1="70" x2="40" y2="70" style="stroke:black;stroke-width:1" />
+								<line x1="60" y1="70" x2="70" y2="70" style="stroke:black;stroke-width:1" />
+								<line x1="50" y1="30" x2="50" y2="60" style="stroke:black;stroke-width:1" />
+								<rect x="40" y="60" width="20" height="20" style="fill:none;stroke:black;stroke-width:1;" />
+								<text x="50" y="75" font-family="Verdana" font-size="10pt" fill="black" text-anchor="middle">Z</text>
+								<circle tishi="yes" cx="30" cy="30" r="3" stroke="black" stroke-width="1" fill="black" />
+								<circle tishi="yes" cx="70" cy="30" r="3" stroke="black" stroke-width="1" fill="black" />
+								<circle tishi="yes" cx="30" cy="70" r="3" stroke="black" stroke-width="1" fill="black" />
+								<circle tishi="yes" cx="70" cy="70" r="3" stroke="black" stroke-width="1" fill="black" />
+							</svg>
+						</div>
+						<div id="shoukongxiangweimen" style="width: 100px;height: 100px;float: left;border: 1px dashed blue;">
+							<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+								<circle cx="50" cy="30" r="3" stroke="black" stroke-width="1" fill="black" />
+								<line x1="30" y1="30" x2="70" y2="30" style="stroke:black;stroke-width:1" />
+								<line x1="30" y1="70" x2="40" y2="70" style="stroke:black;stroke-width:1" />
+								<line x1="60" y1="70" x2="70" y2="70" style="stroke:black;stroke-width:1" />
+								<line x1="50" y1="30" x2="50" y2="60" style="stroke:black;stroke-width:1" />
+								<rect x="40" y="60" width="20" height="20" style="fill:none;stroke:black;stroke-width:1;" />
+								<text x="50" y="75" font-family="Verdana" font-size="10pt" fill="black" text-anchor="middle">S</text>
+								<circle tishi="yes" cx="30" cy="30" r="3" stroke="black" stroke-width="1" fill="black" />
+								<circle tishi="yes" cx="70" cy="30" r="3" stroke="black" stroke-width="1" fill="black" />
+								<circle tishi="yes" cx="30" cy="70" r="3" stroke="black" stroke-width="1" fill="black" />
+								<circle tishi="yes" cx="70" cy="70" r="3" stroke="black" stroke-width="1" fill="black" />
+							</svg>
+						</div>
+						<div id="toffoli" style="width: 100px;height: 100px;float: left;border: 1px dashed blue;">
+							<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+								<circle cx="50" cy="30" r="3" stroke="black" stroke-width="1" fill="black" />
+								<circle cx="50" cy="50" r="3" stroke="black" stroke-width="1" fill="black" />
+								<line x1="30" y1="30" x2="70" y2="30" style="stroke:black;stroke-width:1" />
+								<line x1="30" y1="50" x2="70" y2="50" style="stroke:black;stroke-width:1" />
+								<line x1="30" y1="70" x2="70" y2="70" style="stroke:black;stroke-width:1" />
+								<line x1="50" y1="30" x2="50" y2="75" style="stroke:black;stroke-width:1" />
+								<circle cx="50" cy="70" r="5" stroke="black" stroke-width="1" fill="none" />
+								<circle tishi="yes" cx="30" cy="30" r="3" stroke="black" stroke-width="1" fill="black" />
+								<circle tishi="yes" cx="70" cy="30" r="3" stroke="black" stroke-width="1" fill="black" />
+								<circle tishi="yes" cx="30" cy="50" r="3" stroke="black" stroke-width="1" fill="black" />
+								<circle tishi="yes" cx="70" cy="50" r="3" stroke="black" stroke-width="1" fill="black" />
+								<circle tishi="yes" cx="30" cy="70" r="3" stroke="black" stroke-width="1" fill="black" />
+								<circle tishi="yes" cx="70" cy="70" r="3" stroke="black" stroke-width="1" fill="black" />
+							</svg>
+						</div>
+						<div id="fredkinmen" style="width: 100px;height: 100px;float: left;border: 1px dashed blue;">
+							<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+								<circle cx="50" cy="30" r="3" stroke="black" stroke-width="1" fill="black" />
+								<line x1="30" y1="30" x2="70" y2="30" style="stroke:black;stroke-width:1" />
+								<line x1="30" y1="50" x2="70" y2="50" style="stroke:black;stroke-width:1" />
+								<line x1="30" y1="70" x2="70" y2="70" style="stroke:black;stroke-width:1" />
+								<line x1="50" y1="30" x2="50" y2="70" style="stroke:black;stroke-width:1" />
+								<!--<path d="M45 45 L55 55" style="fill:none;stroke:black;stroke-width:1" />
+								<path d="M45 65 L55 75" style="fill:none;stroke:black;stroke-width:1" />
+								<path d="M45 55 L55 45" style="fill:none;stroke:black;stroke-width:1" />
+								<path d="M45 75 L55 65" style="fill:none;stroke:black;stroke-width:1" />-->
+								<line x1="45" y1="45" x2="55" y2="55" style="stroke:black;stroke-width:1" />
+								<line x1="45" y1="65" x2="55" y2="75" style="stroke:black;stroke-width:1" />
+								<line x1="45" y1="55" x2="55" y2="45" style="stroke:black;stroke-width:1" />
+								<line x1="45" y1="75" x2="55" y2="65" style="stroke:black;stroke-width:1" />
+								<circle tishi="yes" cx="30" cy="30" r="3" stroke="black" stroke-width="1" fill="black" />
+								<circle tishi="yes" cx="70" cy="30" r="3" stroke="black" stroke-width="1" fill="black" />
+								<circle tishi="yes" cx="30" cy="50" r="3" stroke="black" stroke-width="1" fill="black" />
+								<circle tishi="yes" cx="70" cy="50" r="3" stroke="black" stroke-width="1" fill="black" />
+								<circle tishi="yes" cx="30" cy="70" r="3" stroke="black" stroke-width="1" fill="black" />
+								<circle tishi="yes" cx="70" cy="70" r="3" stroke="black" stroke-width="1" fill="black" />
+							</svg>
+						</div>
+						<div id="celiangyunsuan" style="width: 100px;height: 100px;float: left;border: 1px dashed blue;">
+							<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+								<line x1="20" y1="50" x2="40" y2="50" style="stroke:black;stroke-width:1" />
+								<rect x="40" y="35" width="30" height="30" style="fill:none;stroke:black;stroke-width:1;" />
+								<line x1="55" y1="60" x2="61" y2="43" style="stroke:black;stroke-width:1" />
+								<polygon points="59 41 63 44 64 37" style="fill:black;stroke:black;stroke-width:1" />
+								<path d="M45,55 A10,10 0 0,1 65,55" style="fill:none;stroke:black;stroke-width:1"></path>
+								<circle tishi="yes" cx="20" cy="50" r="3" stroke="black" stroke-width="1" fill="black" />
+								<!--M400.067,299.929 A4,3.9 0 1,1 408.032,299.934-->
+								<!--polygon points="398 290 400 294 402 290"-->
+							</svg>
+						</div>
+						<div id="jingdianbite" style="width: 100px;height: 100px;float: left;border: 1px dashed blue;">
+							<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+								<line x1="20" y1="46" x2="80" y2="46" style="stroke:black;stroke-width:1" />
+								<line x1="20" y1="54" x2="80" y2="54" style="stroke:black;stroke-width:1" />
+								<circle tishi="yes" cx="20" cy="46" r="3" stroke="black" stroke-width="1" fill="black" />
+								<circle tishi="yes" cx="80" cy="46" r="3" stroke="black" stroke-width="1" fill="black" />
+								<circle tishi="yes" cx="20" cy="54" r="3" stroke="black" stroke-width="1" fill="black" />
+								<circle tishi="yes" cx="80" cy="54" r="3" stroke="black" stroke-width="1" fill="black" />
+							</svg>
+						</div>
+						<div id="nliangzibite" style="width: 100px;height: 100px;float: left;border: 1px dashed blue;">
+							<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+								<line x1="20" y1="50" x2="80" y2="50" style="stroke:black;stroke-width:1" />
+								<line x1="47" y1="55" x2="53" y2="45" style="stroke:black;stroke-width:1" />
+								<text x="58" y="46" font-family="Verdana" font-size="10pt" fill="black" text-anchor="middle">n</text>
+								<circle tishi="yes" cx="20" cy="50" r="3" stroke="black" stroke-width="1" fill="black" />
+								<circle tishi="yes" cx="80" cy="50" r="3" stroke="black" stroke-width="1" fill="black" />
+							</svg>
+						</div>
+					</div>
+					<div style="width: 220px;">
+						<p style="clear: both;">组合量子门</p>
+						<div style="width: 100px;height: 100px;float: left;border: 1px dashed blue;">
+							<!--线数<input id="linecount" value="4" type="text" style="width: 66px;height: 9px;" /> 线长
+							<input id="linelong" value="50" type="text" style="width: 56px;height: 9px;" /> 线间距
+							<input id="jianjuline" value="2" type="text" style="width: 46px;height: 9px;" />-->
+							<!--<p style="width: 100px;height: 10px;">组平行线</p>-->
+
+							<!--线数<input id="linecount" class="easyui-numberspinner" data-options="min:1,max:10,value:4,increment:1" style="width: 66px;height: 25px;" /> 线长
+							<input id="linelong" class="easyui-numberspinner" data-options="min:10,max:120,value:50,increment:1" style="width: 56px;height: 25px;" /> 线间距
+							<input id="jianjuline" class="easyui-numberspinner" data-options="min:2,max:10,value:3,increment:1" style="width: 46px;height: 25px;" />-->
+							<div id="zuheline" style="width: 100px;height: 100px;">
+								<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+									<line x1="10" y1="30" x2="90" y2="30" style="stroke:black;stroke-width:1" />
+									<line x1="10" y1="50" x2="90" y2="50" style="stroke:black;stroke-width:1" />
+									<line x1="10" y1="40" x2="90" y2="40" style="stroke:black;stroke-width:1" />
+								</svg>
+							</div>
+						</div>
+						<div style="width: 100px;height: 100px;float: left;border: 1px dashed blue;">
+							<!--控制点数<input id="kongzhidiancount" value="2" type="text" style="width: 40px;height: 9px;" /> 受控点数
+							<input id="shoukongdiancount" value="1" type="text" style="width: 30px;height: 9px;" /> 点间距
+							<input id="jianjudian" value="2" type="text" style="width: 40px;height: 9px;" />-->
+							<!--<p style="width: 100px;height: 10px;">组控制点</p>-->
+
+							<!--控制点数<input id="kongzhidiancount" class="easyui-numberspinner" data-options="min:1,max:10,value:2,increment:1" style="width: 40px;height: 25px;" /> 受控点数
+							<input id="shoukongdiancount" class="easyui-numberspinner" data-options="min:1,max:10,value:1,increment:1" style="width: 40px;height: 25px;" /> 点间距
+							<input id="jianjudian" class="easyui-numberspinner" data-options="min:2,max:10,value:3,increment:1" style="width: 40px;height: 25px;" />-->
+							<div id="zuhedian" style="width: 100px;height: 100px;">
+								<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+									<line x1="50" y1="20" x2="50" y2="68" style="stroke:black;stroke-width:1" />
+									<line x1="42" y1="60" x2="58" y2="60" style="stroke:black;stroke-width:1" />
+									<circle cx="50" cy="20" r="5" stroke="black" stroke-width="1" fill="black" />
+									<circle cx="50" cy="40" r="5" stroke="black" stroke-width="1" fill="black" />
+									<circle cx="50" cy="60" r="8" stroke="black" stroke-width="1" fill="none" />
+								</svg>
+							</div>
+						</div>
+						<div style="width: 100px;height: 100px;float: left;border: 1px dashed blue;">
+							<!--符号中间无字符
+							<input id="fuhaoshu" value="abcd" type="text" style="width: 80px;height: 15px;" /> 字符间距
+							<input id="zifujianju" class="easyui-numberspinner" data-options="min:2,max:10,value:2,increment:1" style="width: 40px;height: 25px;" />-->
+							<!--<p style="width: 100px;height: 10px;">组控制点</p>-->
+							<div id="fuhaozu" style="width: 100px;height: 100px;">
+								<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+									<text x="48" y="30" font-family="Verdana" font-size="10pt" fill="black" text-anchor="middle">a</text>
+									<text x="48" y="40" font-family="Verdana" font-size="10pt" fill="black" text-anchor="middle">b</text>
+									<text x="48" y="50" font-family="Verdana" font-size="10pt" fill="black" text-anchor="middle">c</text>
+									<text x="48" y="60" font-family="Verdana" font-size="10pt" fill="black" text-anchor="middle">d</text>
+								</svg>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<div data-options="region:'east',title:'属性',split:'true'" style="width: 280px;">
+				<table id="propertydiv" style="width: 280px;">
+				</table>
+				<div style="width: 272px;;border: 1px dashed blue;position: relative;bottom: -250px;">
+					<input type="file" id="file" style="width: 70px;" onchange="handleFiles(this.files)" />
+					<button id="chenghui">重新绘制</button>
+					<textarea id="filecontent" name="" rows="100" cols="" style="display: block;width: 267px;">
+.v a,b,c,d,e,f,g
+.i a,b,c,d,e,f,g
+.o a,b,c,d,e,f,g
+BEGIN
+T1 a
+T1 b
+T2 e,f
+T2 g,b
+T2 g,c
+T3 e,f,g
+T2 g,e
+T2 g,f
+T2 d,c
+T2 d,a
+T2 d,b
+T3 c,f,d
+T3 e,g,c
+T3 c,f,d
+T2 d,b
+T3 f,g,e
+T2 d,a
+T2 d,f
+T3 e,g,d
+T2 b,e
+T2 c,b
+T2 d,g
+T2 c,f
+T2 b,d
+T2 d,a
+T2 a,d
+T2 a,c
+END
+					</textarea>
+					<!--<div id="filecontent"></div>-->
+				</div>
+			</div>
+			<div data-options="region:'center',split:'true'" id="workarea">
+				<div style="width: 2018px;height: 1500px;">
+					<div class="rulerhc" style="width: 2018px;height: 18px;background-color: lightgray;">
+						<canvas height="18" width="2018" class="rulerh" id="rulerhc">
+
+				</canvas>
+						<div class="ruler-cursor-x" id="rulerCursorX" style="position: absolute;left: 18px;top: 0px;width: 2px;height: 18px;background-color: red;">
+						</div>
+						<div class="ruler-cursor-x" id="rulerCursorX1" style="position: absolute;left: 18px;top: 0px;width: 18px;height: 18px;">
+						</div>
+					</div>
+					<div class="rulervc" style="height:1500px;width: 18px;background-color: lightgray;position: relative;left: 0px;top: 0px;">
+						<canvas height="1500" width="18" class="rulerv" id="rulervc">
+
+				</canvas>
+					</div>
+					<div class="ruler-cursor-y" id="rulerCursorY" style="position:absolute;left: 0px;top: 18px;width: 18px;height: 2px;background-color: red;">
+					</div>
+					<div class="ruler-cursor-y" id="rulerCursorY1" style="position:absolute;left: 0px;top: 18px;width: 18px;height: 18px;">
+					</div>
+
+					<!--width="1200px" height="600px"-->
+					<div id="canvas" width="2000px" height="1500px" style="position: relative;left: 18px;top: -1500px;"></div>
+				</div>
+			</div>
+		</div>
+
+		<div id="canvgimage" style="width: 200px;height: 200px;display: none;">
+			<!--<img id="ccc" src=""/>-->
+			<canvas id="ccc" src="" style="width: 200px;height: 200px;" />
+		</div>
+		<div id="svgname1" style="display: none;" align="center">
+			<span style="font-size: 15;color: red;height: 20px;">输入文件名</span>
+			<input type="text" name="" id="svgname" value="" />
+			<a id="savetosql" href="#" class="easyui-linkbutton">确定</a>
+		</div>
+
+
+		<!--<script src="var.js" type="text/javascript" charset="utf-8"></script>
+		<script src="indexinitial.js" type="text/javascript" charset="utf-8"></script>
+		<script src="function.js" type="text/javascript" charset="utf-8"></script>
+		<script src="click.js" type="text/javascript" charset="utf-8"></script>
+		<script src="mousemove.js" type="text/javascript" charset="utf-8"></script>
+		<script src="mousedown.js" type="text/javascript" charset="utf-8"></script>
+		<script src="dblclick.js" type="text/javascript" charset="utf-8"></script>
+		<script src="mouseenter.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script src="linetools.js" type="text/javascript" charset="utf-8"></script>-->
+		
+		<script src="jiam_bak/1.js" type="text/javascript" charset="utf-8"></script>
+		
+		<!--div结束标签不能露 否则不报错 界面显示不出来-->
+		<div id="dialog" style="display: none;" align="center">
+			<input type="text" id="zhushi" value="" style="border: 1px solid black;margin-top: 5px;" />
+		</div>
+	</body>
+
+</html>
